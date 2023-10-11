@@ -16,9 +16,10 @@ class NewPageWidget extends StatefulWidget {
 
 class _NewPageWidgetState extends State<NewPageWidget> {
   late NewPageModel _model;
-
+  final weight = 100;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  //  add weight to font weight
+  FontWeight get fontWeight => FontWeight.values[5];
   @override
   void initState() {
     super.initState();
@@ -47,7 +48,7 @@ class _NewPageWidgetState extends State<NewPageWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            'Page Title',
+            'Page Title1',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: Colors.white,
@@ -59,15 +60,29 @@ class _NewPageWidgetState extends State<NewPageWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
-          top: true,
-          child: Container(
-            width: 100.0,
-            height: 100.0,
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
-            ),
-          ),
-        ),
+            top: true,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 40,
+                ),
+                Flexible(
+                  child: Text(
+                    'Hello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        color: colorFromCssString(
+                          '#000000',
+                          defaultColor: Colors.black,
+                        ),
+                        fontWeight: fontWeight,
+                        fontStyle: FontStyle.italic,
+                        decoration: TextDecoration.underline,
+                        letterSpacing: 1),
+                  ),
+                )
+              ],
+            )),
       ),
     );
   }
