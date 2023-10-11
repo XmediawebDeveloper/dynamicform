@@ -8,7 +8,12 @@ import 'listview_model.dart';
 export 'listview_model.dart';
 
 class ListviewWidget extends StatefulWidget {
-  const ListviewWidget({Key? key}) : super(key: key);
+  const ListviewWidget({
+    Key? key,
+    required this.json,
+  }) : super(key: key);
+
+  final dynamic json;
 
   @override
   _ListviewWidgetState createState() => _ListviewWidgetState();
@@ -45,14 +50,27 @@ class _ListviewWidgetState extends State<ListviewWidget> {
     return Builder(
       builder: (context) {
         if (functions.jsonToString(getJsonField(
-              FFAppState().json,
-              r'''$.attr.prop.type''',
+              widget.json,
+              r'''$.prop.type''',
             )) ==
             'primary') {
-          return ListView(
-            padding: EdgeInsets.zero,
-            scrollDirection: Axis.vertical,
-            children: [],
+          return Builder(
+            builder: (context) {
+              final jsonList = getJsonField(
+                widget.json,
+                r'''$.children''',
+              ).toList();
+              return ListView.builder(
+                padding: EdgeInsets.zero,
+                scrollDirection: Axis.vertical,
+                itemCount: jsonList.length,
+                itemBuilder: (context, jsonListIndex) {
+                  final jsonListItem = jsonList[jsonListIndex];
+                  return Container(
+                      width: 100, height: 100, color: Colors.green);
+                },
+              );
+            },
           );
         } else {
           return ListView(

@@ -58,7 +58,9 @@ class _ConditionWidgetState extends State<ConditionWidget> {
           return wrapWithModel(
             model: _model.listviewModel,
             updateCallback: () => setState(() {}),
-            child: ListviewWidget(),
+            child: ListviewWidget(
+              json: FFAppState().json,
+            ),
           );
         } else {
           return Column(

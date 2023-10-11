@@ -7,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'column_model.dart';
 export 'column_model.dart';
-import '/components/all_page_condition_widget.dart';
 
 class ColumnWidget extends StatefulWidget {
   const ColumnWidget({
@@ -82,16 +81,8 @@ class _ColumnWidgetState extends State<ColumnWidget> {
                             children:
                                 List.generate(jsonList.length, (jsonListIndex) {
                               final jsonListItem = jsonList[jsonListIndex];
-                              return wrapWithModel(
-                                model: _model.allPageConditionModel,
-                                updateCallback: () => setState(() {}),
-                                child: AllPageConditionWidget(
-                                  json: getJsonField(
-                                    widget.json,
-                                    r'''$.attr''',
-                                  ),
-                                ),
-                              );
+                              return Container(
+                                  width: 100, height: 100, color: Colors.green);
                             }),
                           );
                         },

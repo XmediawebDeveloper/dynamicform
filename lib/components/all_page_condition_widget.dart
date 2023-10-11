@@ -64,7 +64,7 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
             updateCallback: () => setState(() {}),
             child: ColumnWidget(
               json: getJsonField(
-                FFAppState().json,
+                widget.json,
                 r'''$.attr''',
               ),
             ),
@@ -80,8 +80,8 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
             updateOnChange: true,
             child: RowTypeWidget(
               json: getJsonField(
-                FFAppState().json,
-                r'''$.json''',
+                widget.json,
+                r'''$.attr''',
               ),
             ),
           );
@@ -93,7 +93,12 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
           return wrapWithModel(
             model: _model.listviewModel,
             updateCallback: () => setState(() {}),
-            child: ListviewWidget(),
+            child: ListviewWidget(
+              json: getJsonField(
+                widget.json,
+                r'''$.attr''',
+              ),
+            ),
           );
         } else if (functions.jsonToString(getJsonField(
               widget.json,
@@ -103,7 +108,12 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
           return wrapWithModel(
             model: _model.containerModel,
             updateCallback: () => setState(() {}),
-            child: ContainerWidget(),
+            child: ContainerWidget(
+              json: getJsonField(
+                widget.json,
+                r'''$.attr''',
+              ),
+            ),
           );
         } else if (functions.jsonToString(getJsonField(
               widget.json,
@@ -117,11 +127,11 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: 100.0,
               value: getJsonField(
-                FFAppState().json,
+                widget.json,
                 r'''$.attr.value''',
               ).toString(),
               json: getJsonField(
-                FFAppState().json,
+                widget.json,
                 r'''$.attr.prop''',
               ),
             ),
