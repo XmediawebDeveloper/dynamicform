@@ -36,7 +36,8 @@ class FFAppState extends ChangeNotifier {
 
   late SharedPreferences prefs;
 
-  dynamic _json;
+  dynamic _json = jsonDecode(
+      '{\"type\":\"column\",\"attr\":{\"prop\":{\"type\":\"scroll\",\"axis_main\":\"left\",\"axis_cross\":\"start\",\"item_spacing\":10,\"start_spacing\":20,\"end_spacing\":10},\"children\":[{\"type\":\"listview\",\"attr\":{\"prop\":{\"type\":\"primary\",\"item_spacing\":10,\"start_spacing\":20,\"end_spacing\":10},\"children\":[{\"type\":\"text\",\"attr\":{\"prop\":{\"type\":\"text\",\"font_size\":10,\"text_align\":\"left\",\"font_family\":\"Readex Pro\",\"text_color\":\"#000000\",\"font_weight\":4,\"font_style\":\"none\",\"decoration\":\"none\",\"max_chars\":0,\"max_chars_type\":\"none\"},\"action\":{},\"value\":\"Kumar\"}},{\"type\":\"text\",\"attr\":{\"prop\":{\"type\":\"text\",\"font_size\":10,\"text_align\":\"left\",\"font_family\":\"Readex Pro\",\"text_color\":\"#000000\",\"font_weight\":4,\"font_style\":\"none\",\"decoration\":\"none\",\"max_chars\":0,\"max_chars_type\":\"none\"},\"action\":{},\"value\":\"Naveen\"}},{\"type\":\"text\",\"attr\":{\"prop\":{\"type\":\"text\",\"font_size\":10,\"text_align\":\"left\",\"font_family\":\"Readex Pro\",\"text_color\":\"#000000\",\"font_weight\":4,\"font_style\":\"none\",\"decoration\":\"none\",\"max_chars\":0,\"max_chars_type\":\"none\"},\"action\":{},\"value\":\"Sakthi\"}}]}}]}}');
   dynamic get json => _json;
   set json(dynamic _value) {
     _json = _value;
