@@ -1,3 +1,4 @@
+import '/components/condition_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -36,6 +37,8 @@ class _NewPageWidgetState extends State<NewPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -60,12 +63,10 @@ class _NewPageWidgetState extends State<NewPageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Container(
-            width: 100.0,
-            height: 100.0,
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
-            ),
+          child: wrapWithModel(
+            model: _model.conditionModel,
+            updateCallback: () => setState(() {}),
+            child: ConditionWidget(),
           ),
         ),
       ),

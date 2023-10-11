@@ -1,32 +1,26 @@
 import '/components/condition_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'new_page_widget.dart' show NewPageWidget;
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'column_widget.dart' show ColumnWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class NewPageModel extends FlutterFlowModel<NewPageWidget> {
-  ///  Local state fields for this page.
+class ColumnModel extends FlutterFlowModel<ColumnWidget> {
+  ///  State fields for stateful widgets in this component.
 
-  String text = '';
-
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
   // Model for condition component.
-  late ConditionModel conditionModel;
+  late ConditionModel conditionModel2;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    conditionModel = createModel(context, () => ConditionModel());
+    conditionModel2 = createModel(context, () => ConditionModel());
   }
 
   void dispose() {
-    unfocusNode.dispose();
-    conditionModel.dispose();
+    conditionModel2.dispose();
   }
 
   /// Action blocks are added here.

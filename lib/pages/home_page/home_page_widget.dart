@@ -1,6 +1,12 @@
+import '/components/column_widget.dart';
+import '/components/container_widget.dart';
+import '/components/listview_widget.dart';
+import '/components/row_type_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -36,6 +42,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -60,19 +68,87 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Flexible(
-                child: Text(
-                  'Hello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        color: FlutterFlowTheme.of(context).error,
-                      ),
-                ),
-              ),
-            ],
+          child: Builder(
+            builder: (context) {
+              if (functions.jsonToString(getJsonField(
+                    FFAppState().json,
+                    r'''$.type''',
+                  )) ==
+                  'column') {
+                return wrapWithModel(
+                  model: _model.columnModel,
+                  updateCallback: () => setState(() {}),
+                  child: ColumnWidget(
+                    json: getJsonField(
+                      FFAppState().json,
+                      r'''$.attr''',
+                    ),
+                  ),
+                );
+              } else if (functions.jsonToString(getJsonField(
+                    FFAppState().json,
+                    r'''$.type''',
+                  )) ==
+                  'row') {
+                return wrapWithModel(
+                  model: _model.rowTypeModel,
+                  updateCallback: () => setState(() {}),
+                  updateOnChange: true,
+                  child: RowTypeWidget(
+                    json: getJsonField(
+                      FFAppState().json,
+                      r'''$.json''',
+                    ),
+                  ),
+                );
+              } else if (functions.jsonToString(getJsonField(
+                    FFAppState().json,
+                    r'''$.type''',
+                  )) ==
+                  'listview') {
+                return wrapWithModel(
+                  model: _model.listviewModel,
+                  updateCallback: () => setState(() {}),
+                  child: ListviewWidget(),
+                );
+              } else if (functions.jsonToString(getJsonField(
+                    FFAppState().json,
+                    r'''$.type''',
+                  )) ==
+                  'container') {
+                return wrapWithModel(
+                  model: _model.containerModel,
+                  updateCallback: () => setState(() {}),
+                  child: ContainerWidget(),
+                );
+              } else if (functions.jsonToString(getJsonField(
+                    FFAppState().json,
+                    r'''$.type''',
+                  )) ==
+                  'text') {
+                return Container(
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: 100.0,
+                  child: custom_widgets.TypeTextWidget(
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 100.0,
+                    value: getJsonField(
+                      FFAppState().json,
+                      r'''$.attr.value''',
+                    ).toString(),
+                    json: getJsonField(
+                      FFAppState().json,
+                      r'''$.attr.prop''',
+                    ),
+                  ),
+                );
+              } else {
+                return Text(
+                  'No Widget\n',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                );
+              }
+            },
           ),
         ),
       ),
