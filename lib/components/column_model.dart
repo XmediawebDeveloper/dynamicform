@@ -11,16 +11,16 @@ class ColumnModel extends FlutterFlowModel<ColumnWidget> {
   ///  State fields for stateful widgets in this component.
 
   // Model for condition component.
-  late ConditionModel conditionModel2;
+  late ConditionModel conditionModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    conditionModel2 = createModel(context, () => ConditionModel());
+    conditionModel = createModel(context, () => ConditionModel());
   }
 
   void dispose() {
-    conditionModel2.dispose();
+    conditionModel.dispose();
   }
 
   /// Action blocks are added here.

@@ -81,10 +81,8 @@ class _ColumnWidgetState extends State<ColumnWidget> {
                             children:
                                 List.generate(jsonList.length, (jsonListIndex) {
                               final jsonListItem = jsonList[jsonListIndex];
-                              return ConditionWidget(
-                                key: Key(
-                                    'Key1v9_${jsonListIndex}_of_${jsonList.length}'),
-                              );
+                              return Container(
+                                  width: 100, height: 100, color: Colors.green);
                             }),
                           );
                         },
@@ -100,7 +98,7 @@ class _ColumnWidgetState extends State<ColumnWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           wrapWithModel(
-                            model: _model.conditionModel2,
+                            model: _model.conditionModel,
                             updateCallback: () => setState(() {}),
                             child: ConditionWidget(),
                           ),

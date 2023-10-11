@@ -17,10 +17,9 @@ class NewPageWidget extends StatefulWidget {
 
 class _NewPageWidgetState extends State<NewPageWidget> {
   late NewPageModel _model;
-  final weight = 100;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  //  add weight to font weight
-  FontWeight get fontWeight => FontWeight.values[5];
+
   @override
   void initState() {
     super.initState();
@@ -51,7 +50,7 @@ class _NewPageWidgetState extends State<NewPageWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            'Page Title1',
+            'Page Title',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: Colors.white,
