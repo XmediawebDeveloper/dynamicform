@@ -6,12 +6,14 @@ import 'column_widget.dart' show ColumnWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import '/components/all_page_condition_widget.dart';
 
 class ColumnModel extends FlutterFlowModel<ColumnWidget> {
   ///  State fields for stateful widgets in this component.
 
   // Model for condition component.
   late ConditionModel conditionModel;
+  late AllPageConditionModel allPageConditionModel;
 
   /// Initialization and disposal methods.
 
