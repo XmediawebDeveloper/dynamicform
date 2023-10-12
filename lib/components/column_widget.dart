@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'column_model.dart';
 export 'column_model.dart';
+import '/components/all_page_condition_widget.dart';
 
 class ColumnWidget extends StatefulWidget {
   const ColumnWidget({
@@ -22,7 +23,6 @@ class ColumnWidget extends StatefulWidget {
 
 class _ColumnWidgetState extends State<ColumnWidget> {
   late ColumnModel _model;
-
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -51,24 +51,30 @@ class _ColumnWidgetState extends State<ColumnWidget> {
     return Builder(
       builder: (context) {
         if (functions.jsonToString(getJsonField(
-              FFAppState().json,
-              r'''$.attr.prop.type''',
+              widget.json,
+              r'''$.prop.type''',
             )) ==
             'scroll') {
+          print(getJsonField(
+            widget.json,
+            r'''$.prop.type''',
+          ));
+
           return Builder(
             builder: (context) {
               if (functions.jsonToString(getJsonField(
-                    FFAppState().json,
-                    r'''$.attr.prop.axis_main''',
+                    widget.json,
+                    r'''$.prop.axis_main''',
                   )) ==
                   'left') {
                 return Builder(
                   builder: (context) {
                     if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
+                          widget.json,
+                          r'''$.prop.axis_cross''',
                         )) ==
                         'start') {
+                      print("scroll in");
                       return Builder(
                         builder: (context) {
                           final jsonList = getJsonField(
@@ -81,8 +87,10 @@ class _ColumnWidgetState extends State<ColumnWidget> {
                             children:
                                 List.generate(jsonList.length, (jsonListIndex) {
                               final jsonListItem = jsonList[jsonListIndex];
-                              return Container(
-                                  width: 100, height: 100, color: Colors.green);
+                              print('index: $jsonListIndex');
+                              return AllPageConditionWidget(
+                                json: jsonListItem,
+                              );
                             }),
                           );
                         },

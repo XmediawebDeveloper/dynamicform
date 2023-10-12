@@ -26,7 +26,6 @@ class AllPageConditionWidget extends StatefulWidget {
 
 class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
   late AllPageConditionModel _model;
-
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -36,20 +35,22 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AllPageConditionModel());
+    // _model = createModel(context, () => AllPageConditionModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.maybeDispose();
+    // _model.maybeDispose();
 
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    print(widget.json);
+
     context.watch<FFAppState>();
 
     return Builder(
@@ -59,14 +60,11 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
               r'''$.type''',
             )) ==
             'column') {
-          return wrapWithModel(
-            model: _model.columnModel,
-            updateCallback: () => setState(() {}),
-            child: ColumnWidget(
-              json: getJsonField(
-                widget.json,
-                r'''$.attr''',
-              ),
+          print("column in");
+          return ColumnWidget(
+            json: getJsonField(
+              widget.json,
+              r'''$.attr''',
             ),
           );
         } else if (functions.jsonToString(getJsonField(
@@ -90,14 +88,11 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
               r'''$.type''',
             )) ==
             'listview') {
-          return wrapWithModel(
-            model: _model.listviewModel,
-            updateCallback: () => setState(() {}),
-            child: ListviewWidget(
-              json: getJsonField(
-                widget.json,
-                r'''$.attr''',
-              ),
+          print("listview in");
+          return ListviewWidget(
+            json: getJsonField(
+              widget.json,
+              r'''$.attr''',
             ),
           );
         } else if (functions.jsonToString(getJsonField(
@@ -120,20 +115,16 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
               r'''$.type''',
             )) ==
             'text') {
-          return Container(
+          return custom_widgets.TypeTextWidget(
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: 100.0,
-            child: custom_widgets.TypeTextWidget(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: 100.0,
-              value: getJsonField(
-                widget.json,
-                r'''$.attr.value''',
-              ).toString(),
-              json: getJsonField(
-                widget.json,
-                r'''$.attr.prop''',
-              ),
+            value: getJsonField(
+              widget.json,
+              r'''$.attr.value''',
+            ).toString(),
+            json: getJsonField(
+              widget.json,
+              r'''$.attr.prop''',
             ),
           );
         } else {

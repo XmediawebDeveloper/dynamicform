@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'listview_model.dart';
 export 'listview_model.dart';
+import '/components/all_page_condition_widget.dart';
 
 class ListviewWidget extends StatefulWidget {
   const ListviewWidget({
@@ -45,6 +46,7 @@ class _ListviewWidgetState extends State<ListviewWidget> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.json);
     context.watch<FFAppState>();
 
     return Builder(
@@ -66,8 +68,7 @@ class _ListviewWidgetState extends State<ListviewWidget> {
                 itemCount: jsonList.length,
                 itemBuilder: (context, jsonListIndex) {
                   final jsonListItem = jsonList[jsonListIndex];
-                  return Container(
-                      width: 100, height: 100, color: Colors.green);
+                  return Text('asd');
                 },
               );
             },
