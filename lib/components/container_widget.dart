@@ -61,7 +61,6 @@ class _ContainerWidgetState extends State<ContainerWidget> {
           );
         } else {
           return Container(
-            height: MediaQuery.sizeOf(context).height * 1.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),

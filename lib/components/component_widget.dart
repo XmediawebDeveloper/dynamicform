@@ -3,18 +3,18 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'sample_model.dart';
-export 'sample_model.dart';
+import 'component_model.dart';
+export 'component_model.dart';
 
-class SampleWidget extends StatefulWidget {
-  const SampleWidget({Key? key}) : super(key: key);
+class ComponentWidget extends StatefulWidget {
+  const ComponentWidget({Key? key}) : super(key: key);
 
   @override
-  _SampleWidgetState createState() => _SampleWidgetState();
+  _ComponentWidgetState createState() => _ComponentWidgetState();
 }
 
-class _SampleWidgetState extends State<SampleWidget> {
-  late SampleModel _model;
+class _ComponentWidgetState extends State<ComponentWidget> {
+  late ComponentModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -25,7 +25,7 @@ class _SampleWidgetState extends State<SampleWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SampleModel());
+    _model = createModel(context, () => ComponentModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -41,19 +41,17 @@ class _SampleWidgetState extends State<SampleWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ListView(
-            padding: EdgeInsets.zero,
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
             children: [],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
