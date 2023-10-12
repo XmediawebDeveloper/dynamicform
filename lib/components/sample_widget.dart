@@ -41,6 +41,19 @@ class _SampleWidgetState extends State<SampleWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Container();
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ListView(
+            padding: EdgeInsets.zero,
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            children: [],
+          ),
+        ],
+      ),
+    );
   }
 }

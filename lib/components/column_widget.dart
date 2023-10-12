@@ -51,21 +51,21 @@ class _ColumnWidgetState extends State<ColumnWidget> {
     return Builder(
       builder: (context) {
         if (functions.jsonToString(getJsonField(
-              FFAppState().json,
+              widget.json,
               r'''$.attr.prop.type''',
             )) ==
             'scroll') {
           return Builder(
             builder: (context) {
               if (functions.jsonToString(getJsonField(
-                    FFAppState().json,
+                    widget.json,
                     r'''$.attr.prop.axis_main''',
                   )) ==
                   'left') {
                 return Builder(
                   builder: (context) {
                     if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
+                          widget.json,
                           r'''$.attr.prop.axis_main''',
                         )) ==
                         'start') {
