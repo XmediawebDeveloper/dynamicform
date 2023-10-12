@@ -67,39 +67,37 @@ class _ColumnPageWidgetState extends State<ColumnPageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Builder(
-                  builder: (context) {
-                    final json = getJsonField(
-                      widget.json,
-                      r'''$.children''',
-                    ).toList();
-                    return ListView.separated(
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: json.length,
-                      separatorBuilder: (_, __) => SizedBox(height: 10.0),
-                      itemBuilder: (context, jsonIndex) {
-                        final jsonItem = json[jsonIndex];
-                        return Container(
-                          width: 100.0,
-                          height: 100.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).tertiary,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                ),
-              ],
-            ),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Builder(
+                builder: (context) {
+                  final json = getJsonField(
+                    widget.json,
+                    r'''$.children''',
+                  ).toList();
+                  return ListView.separated(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: json.length,
+                    separatorBuilder: (_, __) => SizedBox(height: 10.0),
+                    itemBuilder: (context, jsonIndex) {
+                      final jsonItem = json[jsonIndex];
+                      return Container(
+                        width: 100.0,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).tertiary,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
+            ],
           ),
         ),
       ),
