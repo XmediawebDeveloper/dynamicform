@@ -62,13 +62,16 @@ class _ImageWidgetState extends State<ImageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8.0),
-            child: Image.network(
-              'https://picsum.photos/seed/605/600',
-              width: 300.0,
-              height: 200.0,
-              fit: BoxFit.cover,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(50.0, 50.0, 50.0, 50.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.network(
+                'https://picsum.photos/seed/605/600',
+                width: 150.0,
+                height: 200.0,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
