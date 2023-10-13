@@ -23,50 +23,55 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   void initState() {
     super.initState();
-    // _model = createModel(context, () => HomePageModel());
+    _model = createModel(context, () => HomePageModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    // _model.dispose();
+    _model.dispose();
 
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    print('HomePageWidget built');
     context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
-          key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
-            automaticallyImplyLeading: false,
-            title: Text(
-              'Page Title',
-              style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Outfit',
-                    color: Colors.white,
-                    fontSize: 22.0,
-                  ),
-            ),
-            actions: [],
-            centerTitle: false,
-            elevation: 2.0,
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          automaticallyImplyLeading: false,
+          title: Text(
+            'Page Title',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Outfit',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                ),
           ),
-          body: SafeArea(
-            top: true,
+          actions: [],
+          centerTitle: false,
+          elevation: 2.0,
+        ),
+        body: SafeArea(
+          top: true,
+          child: wrapWithModel(
+            model: _model.allPageConditionModel,
+            updateCallback: () => setState(() {}),
             child: AllPageConditionWidget(
               json: FFAppState().json,
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

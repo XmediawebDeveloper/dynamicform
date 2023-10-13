@@ -17,12 +17,12 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    // allPageConditionModel = createModel(context, () => AllPageConditionModel());
+    allPageConditionModel = createModel(context, () => AllPageConditionModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
-    // allPageConditionModel.dispose();
+    allPageConditionModel.dispose();
   }
 
   /// Action blocks are added here.

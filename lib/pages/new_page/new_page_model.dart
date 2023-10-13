@@ -1,5 +1,4 @@
 import '/components/condition_widget.dart';
-import '/components/all_page_condition_model.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -20,17 +19,14 @@ class NewPageModel extends FlutterFlowModel<NewPageWidget> {
   late ConditionModel conditionModel;
 
   /// Initialization and disposal methods.
-  late AllPageConditionModel allPageConditionModel;
 
   void initState(BuildContext context) {
     conditionModel = createModel(context, () => ConditionModel());
-    allPageConditionModel = createModel(context, () => AllPageConditionModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
     conditionModel.dispose();
-    allPageConditionModel.dispose();
   }
 
   /// Action blocks are added here.

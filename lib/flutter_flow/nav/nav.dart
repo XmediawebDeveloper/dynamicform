@@ -36,7 +36,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => HomePageWidget(),
+      errorBuilder: (context, state) => NewPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
@@ -59,6 +59,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ColumnPageWidget(
             json: params.getParam('json', ParamType.JSON),
           ),
+        ),
+        FFRoute(
+          name: 'SamplePage',
+          path: '/samplePage',
+          builder: (context, params) => SamplePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

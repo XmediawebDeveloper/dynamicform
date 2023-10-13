@@ -5,11 +5,9 @@ import 'listview_widget.dart' show ListviewWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '/components/all_page_condition_widget.dart';
 
 class ListviewModel extends FlutterFlowModel<ListviewWidget> {
   /// Initialization and disposal methods.
-  late AllPageConditionModel allPageConditionModel;
 
   void initState(BuildContext context) {}
 

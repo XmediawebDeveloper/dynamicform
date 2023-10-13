@@ -1,16 +1,27 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'container_widget.dart' show ContainerWidget;
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'sample_page_widget.dart' show SamplePageWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ContainerModel extends FlutterFlowModel<ContainerWidget> {
+class SamplePageModel extends FlutterFlowModel<SamplePageWidget> {
+  ///  Local state fields for this page.
+
+  dynamic json;
+
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
-  void dispose() {}
+  void dispose() {
+    unfocusNode.dispose();
+  }
 
   /// Action blocks are added here.
 
