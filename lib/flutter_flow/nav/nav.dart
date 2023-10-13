@@ -64,6 +64,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'SamplePage',
           path: '/samplePage',
           builder: (context, params) => SamplePageWidget(),
+        ),
+        FFRoute(
+          name: 'Image',
+          path: '/image',
+          builder: (context, params) => ImageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
