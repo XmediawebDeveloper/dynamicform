@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -47,26 +46,11 @@ class _ContainerWidgetState extends State<ContainerWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Builder(
-      builder: (context) {
-        if (functions.jsonToString(getJsonField(
-              widget.json,
-              r'''$.prop.type''',
-            )) ==
-            'primary') {
-          return Container(
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
-            ),
-          );
-        } else {
-          return Container(
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
-            ),
-          );
-        }
-      },
+    return Container(
+      width: MediaQuery.sizeOf(context).width * 0.1,
+      decoration: BoxDecoration(
+        color: FlutterFlowTheme.of(context).secondaryBackground,
+      ),
     );
   }
 }

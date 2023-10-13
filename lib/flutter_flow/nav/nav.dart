@@ -59,6 +59,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ColumnPageWidget(
             json: params.getParam('json', ParamType.JSON),
           ),
+        ),
+        FFRoute(
+          name: 'SamplePage',
+          path: '/samplePage',
+          builder: (context, params) => SamplePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

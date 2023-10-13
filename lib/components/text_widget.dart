@@ -41,17 +41,14 @@ class _TextWidgetState extends State<TextWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Container(
-          width: MediaQuery.sizeOf(context).width * 1.0,
-          height: MediaQuery.sizeOf(context).height * 1.0,
-          decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
-          ),
-        ),
-      ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8.0),
+      child: Image.network(
+        'https://picsum.photos/seed/390/600',
+        width: 300.0,
+        height: 200.0,
+        fit: BoxFit.contain,
+      ),
     );
   }
 }
