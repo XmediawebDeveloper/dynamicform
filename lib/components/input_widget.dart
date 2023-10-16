@@ -33,8 +33,7 @@ class _InputWidgetState extends State<InputWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => InputModel());
-    _model.textController ??=
-        TextEditingController(text: widget.json['prop']['value']);
+    _model.textController ??= TextEditingController(text: "11");
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -128,7 +127,10 @@ class _InputWidgetState extends State<InputWidget> {
       widget.json,
       r'''$.prop.hint_text''',
     );
-
+    final label_text = getJsonField(
+      widget.json,
+      r'''$.prop.label_text''',
+    );
     return Builder(builder: (context) {
 // Generated code for this TextField Widget...
       return Padding(
