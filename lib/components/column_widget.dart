@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'column_model.dart';
 export 'column_model.dart';
+import '/components/all_page_condition_widget.dart';
 
 class ColumnWidget extends StatefulWidget {
   const ColumnWidget({
@@ -48,705 +49,153 @@ class _ColumnWidgetState extends State<ColumnWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Builder(
-      builder: (context) {
-        if (functions.jsonToString(getJsonField(
-              widget.json,
-              r'''$.attr.prop.type''',
-            )) ==
-            'scroll') {
-          return Builder(
-            builder: (context) {
-              if (functions.jsonToString(getJsonField(
-                    widget.json,
-                    r'''$.attr.prop.axis_main''',
-                  )) ==
-                  'left') {
-                return Builder(
-                  builder: (context) {
-                    if (functions.jsonToString(getJsonField(
-                          widget.json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'start') {
-                      return Builder(
-                        builder: (context) {
-                          final jsonList = getJsonField(
-                            widget.json,
-                            r'''$.children''',
-                          ).toList();
-                          return Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children:
-                                List.generate(jsonList.length, (jsonListIndex) {
-                              final jsonListItem = jsonList[jsonListIndex];
-                              return Container(
-                                  width: 100, height: 100, color: Colors.green);
-                            }),
-                          );
-                        },
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'center') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          wrapWithModel(
-                            model: _model.conditionModel,
-                            updateCallback: () => setState(() {}),
-                            child: ConditionWidget(),
-                          ),
-                        ],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'end') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_even') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_around') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_between') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
-                      );
-                    } else {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
-                      );
-                    }
-                  },
-                );
-              } else if (functions.jsonToString(getJsonField(
-                    FFAppState().json,
-                    r'''$.attr.prop.axis_main''',
-                  )) ==
-                  'right') {
-                return Builder(
-                  builder: (context) {
-                    if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'start') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'center') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'end') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_even') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_around') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_between') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    } else {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    }
-                  },
-                );
-              } else if (functions.jsonToString(getJsonField(
-                    FFAppState().json,
-                    r'''$.attr.prop.axis_main''',
-                  )) ==
-                  'center') {
-                return Builder(
-                  builder: (context) {
-                    if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'start') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'center') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'end') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_even') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_around') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_between') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    } else {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    }
-                  },
-                );
-              } else if (functions.jsonToString(getJsonField(
-                    FFAppState().json,
-                    r'''$.attr.prop.axis_main''',
-                  )) ==
-                  'stretch') {
-                return Builder(
-                  builder: (context) {
-                    if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'start') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'center') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'end') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_even') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_around') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_between') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    } else {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    }
-                  },
-                );
-              } else {
-                return Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [],
-                );
-              }
-            },
-          );
-        } else {
-          return Builder(
-            builder: (context) {
-              if (functions.jsonToString(getJsonField(
-                    FFAppState().json,
-                    r'''$.attr.prop.axis_main''',
-                  )) ==
-                  'left') {
-                return Builder(
-                  builder: (context) {
-                    if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'start') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'center') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'end') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_even') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_around') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_between') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
-                      );
-                    } else {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
-                      );
-                    }
-                  },
-                );
-              } else if (functions.jsonToString(getJsonField(
-                    FFAppState().json,
-                    r'''$.attr.prop.axis_main''',
-                  )) ==
-                  'right') {
-                return Builder(
-                  builder: (context) {
-                    if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'start') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'center') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'end') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_even') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_around') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_between') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    } else {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [],
-                      );
-                    }
-                  },
-                );
-              } else if (functions.jsonToString(getJsonField(
-                    FFAppState().json,
-                    r'''$.attr.prop.axis_main''',
-                  )) ==
-                  'center') {
-                return Builder(
-                  builder: (context) {
-                    if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'start') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'center') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'end') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_even') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_around') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_between') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    } else {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      );
-                    }
-                  },
-                );
-              } else if (functions.jsonToString(getJsonField(
-                    FFAppState().json,
-                    r'''$.attr.prop.axis_main''',
-                  )) ==
-                  'stretch') {
-                return Builder(
-                  builder: (context) {
-                    if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'start') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'center') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'end') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_even') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_around') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    } else if (functions.jsonToString(getJsonField(
-                          FFAppState().json,
-                          r'''$.attr.prop.axis_main''',
-                        )) ==
-                        'space_between') {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    } else {
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [],
-                      );
-                    }
-                  },
-                );
-              } else {
-                return Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [],
-                );
-              }
-            },
-          );
-        }
-      },
+    final main_axis = getJsonField(
+      widget.json,
+      r'''$.prop.main_axis''',
     );
+
+    final axis_main_align = getJsonField(
+      widget.json,
+      r'''$.prop.axis_main_align''',
+    );
+    final axis_cross_align = getJsonField(
+      widget.json,
+      r'''$.prop.axis_cross_align''',
+    );
+    final start_spacing = getJsonField(
+      widget.json,
+      r'''$.prop.start_spacing''',
+    ).toDouble();
+    final end_spacing = getJsonField(
+      widget.json,
+      r'''$.prop.end_spacing''',
+    ).toDouble();
+    final item_spacing = getJsonField(
+      widget.json,
+      r'''$.prop.item_spacing''',
+    ).toDouble();
+    final type = getJsonField(
+      widget.json,
+      r'''$.prop.type''',
+    );
+    double padding_left = getJsonField(
+      widget.json,
+      r'''$.prop.padding_left''',
+    ).toDouble();
+    double padding_right = getJsonField(
+      widget.json,
+      r'''$.prop.padding_right''',
+    ).toDouble();
+    double padding_top = getJsonField(
+      widget.json,
+      r'''$.prop.padding_top''',
+    ).toDouble();
+    double padding_bottom = getJsonField(
+      widget.json,
+      r'''$.prop.padding_bottom''',
+    ).toDouble();
+
+    if (functions.jsonToString(type) == 'scroll') {
+      return Builder(builder: (context) {
+        final jsonList = getJsonField(
+          widget.json,
+          r'''$.children''',
+        ).toList();
+        return Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(
+              padding_left,
+              padding_top,
+              padding_right,
+              padding_bottom,
+            ),
+            child: SingleChildScrollView(
+                child: Column(
+              mainAxisSize:
+                  main_axis == 'max' ? MainAxisSize.max : MainAxisSize.min,
+              mainAxisAlignment: axis_main_align == 'start' ||
+                      axis_main_align == 'top'
+                  ? MainAxisAlignment.start
+                  : axis_main_align == 'center'
+                      ? MainAxisAlignment.center
+                      : axis_main_align == 'end' || axis_main_align == 'bottom'
+                          ? MainAxisAlignment.end
+                          : axis_main_align == 'space_between'
+                              ? MainAxisAlignment.spaceBetween
+                              : axis_main_align == 'space_around'
+                                  ? MainAxisAlignment.spaceAround
+                                  : axis_main_align == 'space_even'
+                                      ? MainAxisAlignment.spaceEvenly
+                                      : MainAxisAlignment.start,
+              crossAxisAlignment: axis_cross_align == 'start'
+                  ? CrossAxisAlignment.start
+                  : axis_cross_align == 'center'
+                      ? CrossAxisAlignment.center
+                      : axis_cross_align == 'end'
+                          ? CrossAxisAlignment.end
+                          : axis_cross_align == 'stretch'
+                              ? CrossAxisAlignment.stretch
+                              : CrossAxisAlignment.start,
+              children: List.generate(jsonList.length, (jsonIndex) {
+                final jsonItem = jsonList[jsonIndex];
+                return AllPageConditionWidget(
+                  json: jsonItem,
+                );
+              })
+                  .divide(SizedBox(height: item_spacing))
+                  .addToStart(SizedBox(height: start_spacing))
+                  .addToEnd(SizedBox(height: end_spacing)),
+            )));
+      });
+    } else {
+      return Builder(builder: (context) {
+        final jsonList = getJsonField(
+          widget.json,
+          r'''$.children''',
+        ).toList();
+        return Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(
+              padding_left,
+              padding_top,
+              padding_right,
+              padding_bottom,
+            ),
+            child: Column(
+              mainAxisSize:
+                  main_axis == 'max' ? MainAxisSize.max : MainAxisSize.min,
+              mainAxisAlignment: axis_main_align == 'start' ||
+                      axis_main_align == 'top'
+                  ? MainAxisAlignment.start
+                  : axis_main_align == 'center'
+                      ? MainAxisAlignment.center
+                      : axis_main_align == 'end' || axis_main_align == 'bottom'
+                          ? MainAxisAlignment.end
+                          : axis_main_align == 'space_between'
+                              ? MainAxisAlignment.spaceBetween
+                              : axis_main_align == 'space_around'
+                                  ? MainAxisAlignment.spaceAround
+                                  : axis_main_align == 'space_even'
+                                      ? MainAxisAlignment.spaceEvenly
+                                      : MainAxisAlignment.start,
+              crossAxisAlignment: axis_cross_align == 'start'
+                  ? CrossAxisAlignment.start
+                  : axis_cross_align == 'center'
+                      ? CrossAxisAlignment.center
+                      : axis_cross_align == 'end'
+                          ? CrossAxisAlignment.end
+                          : axis_cross_align == 'stretch'
+                              ? CrossAxisAlignment.stretch
+                              : CrossAxisAlignment.start,
+              children: List.generate(jsonList.length, (jsonIndex) {
+                final jsonItem = jsonList[jsonIndex];
+                return AllPageConditionWidget(
+                  json: jsonItem,
+                );
+              })
+                  .divide(SizedBox(height: item_spacing))
+                  .addToStart(SizedBox(height: start_spacing))
+                  .addToEnd(SizedBox(height: end_spacing)),
+            ));
+      });
+    }
   }
 }

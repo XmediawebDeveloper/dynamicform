@@ -2,6 +2,8 @@ import '/components/column_widget.dart';
 import '/components/container_widget.dart';
 import '/components/listview_widget.dart';
 import '/components/row_type_widget.dart';
+import '/components/input_widget.dart';
+
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
@@ -22,6 +24,8 @@ class AllPageConditionModel extends FlutterFlowModel<AllPageConditionWidget> {
   late ListviewModel listviewModel;
   // Model for container component.
   late ContainerModel containerModel;
+  // Model for input component.
+  late InputModel inputModel;
 
   /// Initialization and disposal methods.
 
@@ -30,6 +34,7 @@ class AllPageConditionModel extends FlutterFlowModel<AllPageConditionWidget> {
     rowTypeModel = createModel(context, () => RowTypeModel());
     listviewModel = createModel(context, () => ListviewModel());
     containerModel = createModel(context, () => ContainerModel());
+    inputModel = createModel(context, () => InputModel());
   }
 
   void dispose() {
@@ -37,6 +42,7 @@ class AllPageConditionModel extends FlutterFlowModel<AllPageConditionWidget> {
     rowTypeModel.dispose();
     listviewModel.dispose();
     containerModel.dispose();
+    inputModel.dispose();
   }
 
   /// Action blocks are added here.

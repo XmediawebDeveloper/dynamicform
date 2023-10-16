@@ -46,3 +46,22 @@ String? jsonToString(dynamic value) {
     return null;
   }
 }
+
+dynamic stringTojson(String? value) {
+  /// MODIFY CODE ONLY BELOW THIS LINE
+
+  // string to json
+// return as dynamic
+  if (value == null) {
+    return null;
+  } else {
+    try {
+      final dynamic jsonValue = json.decode(value);
+      return jsonValue;
+    } catch (e) {
+      return value;
+    }
+  }
+
+  /// MODIFY CODE ONLY ABOVE THIS LINE
+}

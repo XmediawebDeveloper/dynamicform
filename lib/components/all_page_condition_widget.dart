@@ -2,6 +2,7 @@ import '/components/column_widget.dart';
 import '/components/container_widget.dart';
 import '/components/listview_widget.dart';
 import '/components/row_type_widget.dart';
+import '/components/input_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
@@ -51,7 +52,10 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-
+    print(getJsonField(
+      widget.json,
+      r'''$.type''',
+    ));
     return Builder(
       builder: (context) {
         if (functions.jsonToString(getJsonField(
@@ -105,6 +109,7 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
               r'''$.type''',
             )) ==
             'container') {
+          print('container');
           return wrapWithModel(
             model: _model.containerModel,
             updateCallback: () => setState(() {}),
@@ -120,19 +125,32 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
               r'''$.type''',
             )) ==
             'text') {
-          return Container(
+          print('text');
+          return custom_widgets.TypeTextWidget(
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: 100.0,
-            child: custom_widgets.TypeTextWidget(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: 100.0,
-              value: getJsonField(
-                widget.json,
-                r'''$.attr.value''',
-              ).toString(),
+            value: getJsonField(
+              widget.json,
+              r'''$.attr.value''',
+            ).toString(),
+            json: getJsonField(
+              widget.json,
+              r'''$.attr.prop''',
+            ),
+          );
+        } else if (functions.jsonToString(getJsonField(
+              widget.json,
+              r'''$.type''',
+            )) ==
+            'textfield') {
+          print('input');
+          return wrapWithModel(
+            model: _model.inputModel,
+            updateCallback: () => setState(() {}),
+            child: InputWidget(
               json: getJsonField(
                 widget.json,
-                r'''$.attr.prop''',
+                r'''$.attr''',
               ),
             ),
           );

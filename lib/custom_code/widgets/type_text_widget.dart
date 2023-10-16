@@ -49,7 +49,7 @@ class _TypeTextWidgetState extends State<TypeTextWidget> {
                 widget.json['text_color'],
                 defaultColor: Colors.black,
               ),
-              fontSize: widget.json['font_size'],
+              fontSize: widget.json['font_size'].toDouble(),
               fontWeight: FontWeight.values[widget.json['font_weight']],
               fontStyle: widget.json['font_style'] == 'italic'
                   ? FontStyle.italic
