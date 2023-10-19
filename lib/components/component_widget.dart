@@ -41,17 +41,19 @@ class _ComponentWidgetState extends State<ComponentWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
-          ),
-        ),
-      ],
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+      child: Wrap(
+        spacing: 0.0,
+        runSpacing: 0.0,
+        alignment: WrapAlignment.start,
+        crossAxisAlignment: WrapCrossAlignment.start,
+        direction: Axis.horizontal,
+        runAlignment: WrapAlignment.start,
+        verticalDirection: VerticalDirection.down,
+        clipBehavior: Clip.none,
+        children: [],
+      ),
     );
   }
 }

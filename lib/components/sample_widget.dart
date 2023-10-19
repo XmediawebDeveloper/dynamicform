@@ -32,6 +32,7 @@ class _SampleWidgetState extends State<SampleWidget> {
     super.initState();
     _model = createModel(context, () => SampleModel());
 
+    _model.textController ??= TextEditingController(text: 'test');
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -46,39 +47,72 @@ class _SampleWidgetState extends State<SampleWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Material(
-      color: Colors.transparent,
-      elevation: 3.0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
       child: Container(
-        width: 100.0,
-        height: 100.0,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 4.0,
-              color: FlutterFlowTheme.of(context).secondary,
-              offset: Offset(0.0, 2.0),
-              spreadRadius: 2.0,
-            )
-          ],
-          gradient: LinearGradient(
-            colors: [
-              FlutterFlowTheme.of(context).primary,
-              FlutterFlowTheme.of(context).secondary
-            ],
-            stops: [0.0, 1.0],
-            begin: AlignmentDirectional(0.0, -1.0),
-            end: AlignmentDirectional(0, 1.0),
+        width: 500.0,
+        child: TextFormField(
+          controller: _model.textController,
+          obscureText: !_model.passwordVisibility,
+          decoration: InputDecoration(
+            labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                  fontFamily: 'Readex Pro',
+                  color: FlutterFlowTheme.of(context).info,
+                ),
+            hintText: 'Test',
+            hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                  fontFamily: 'Readex Pro',
+                  color: FlutterFlowTheme.of(context).tertiary,
+                ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: FlutterFlowTheme.of(context).alternate,
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: FlutterFlowTheme.of(context).primary,
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: FlutterFlowTheme.of(context).error,
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: FlutterFlowTheme.of(context).error,
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            suffixIcon: InkWell(
+              onTap: () => setState(
+                () => _model.passwordVisibility = !_model.passwordVisibility,
+              ),
+              focusNode: FocusNode(skipTraversal: true),
+              child: Icon(
+                _model.passwordVisibility
+                    ? Icons.visibility_outlined
+                    : Icons.visibility_off_outlined,
+                size: 22,
+              ),
+            ),
           ),
-          borderRadius: BorderRadius.circular(8.0),
-          shape: BoxShape.rectangle,
-          border: Border.all(
-            color: FlutterFlowTheme.of(context).secondary,
-            width: 1.0,
-          ),
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                fontFamily: 'Readex Pro',
+                fontSize: 15.0,
+                fontWeight: FontWeight.normal,
+                fontStyle: FontStyle.italic,
+              ),
+          keyboardType: TextInputType.number,
+          validator: _model.textControllerValidator.asValidator(context),
         ),
       ),
     );

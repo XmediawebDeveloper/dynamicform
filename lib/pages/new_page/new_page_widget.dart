@@ -1,4 +1,3 @@
-import '/components/condition_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -60,14 +59,6 @@ class _NewPageWidgetState extends State<NewPageWidget> {
           actions: [],
           centerTitle: false,
           elevation: 2.0,
-        ),
-        body: SafeArea(
-          top: true,
-          child: wrapWithModel(
-            model: _model.conditionModel,
-            updateCallback: () => setState(() {}),
-            child: ConditionWidget(),
-          ),
         ),
       ),
     );

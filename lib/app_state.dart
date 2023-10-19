@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'dart:convert';
@@ -27,6 +28,15 @@ class FFAppState extends ChangeNotifier {
         }
       }
     });
+    _safeInit(() {
+      if (prefs.containsKey('ff_ImageJSon')) {
+        try {
+          _ImageJSon = jsonDecode(prefs.getString('ff_ImageJSon') ?? '');
+        } catch (e) {
+          print("Can't decode persisted json. Error: $e.");
+        }
+      }
+    });
   }
 
   void update(VoidCallback callback) {
@@ -42,6 +52,14 @@ class FFAppState extends ChangeNotifier {
   set json(dynamic _value) {
     _json = _value;
     prefs.setString('ff_json', jsonEncode(_value));
+  }
+
+  dynamic _ImageJSon = jsonDecode(
+      '{\"type\":\"column\",\"attr\":{\"prop\":{\"type\":\"scroll\",\"axis_main_align\":\"center\",\"axis_cross_align\":\"center\",\"main_axis\":\"max\",\"item_spacing\":20,\"start_spacing\":20,\"end_spacing\":10,\"padding_left\":0,\"padding_right\":0,\"padding_top\":0,\"padding_bottom\":0},\"children\":[{\"type\":\"image\",\"attr\":{\"prop\":{\"border_radius\":50,\"box_fit\":\"cover\",\"width\":100,\"width_type\":\"per\",\"height_type\":\"px\",\"height\":350,\"padding_left\":15,\"padding_right\":15,\"padding_top\":0,\"padding_bottom\":0,\"img_url\":\"https://www.stonedsanta.in/wp-content/uploads/2019/06/Naveens-Name-String-Art-by-Sonal-Malhotra.jpg\"}}}]}}');
+  dynamic get ImageJSon => _ImageJSon;
+  set ImageJSon(dynamic _value) {
+    _ImageJSon = _value;
+    prefs.setString('ff_ImageJSon', jsonEncode(_value));
   }
 }
 

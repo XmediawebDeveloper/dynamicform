@@ -36,12 +36,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => NewPageWidget(),
+      errorBuilder: (context, state) => SamplePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => NewPageWidget(),
+          builder: (context, _) => SamplePageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -64,11 +64,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'SamplePage',
           path: '/samplePage',
           builder: (context, params) => SamplePageWidget(),
-        ),
-        FFRoute(
-          name: 'Image',
-          path: '/image',
-          builder: (context, params) => ImageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

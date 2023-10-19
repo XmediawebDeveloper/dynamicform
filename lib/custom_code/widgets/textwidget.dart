@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-class TypeTextWidget extends StatefulWidget {
-  const TypeTextWidget({
+class Textwidget extends StatefulWidget {
+  const Textwidget({
     Key? key,
     this.width,
     this.height,
@@ -22,10 +22,10 @@ class TypeTextWidget extends StatefulWidget {
   final String value;
 
   @override
-  _TypeTextWidgetState createState() => _TypeTextWidgetState();
+  _TextwidgetState createState() => _TextwidgetState();
 }
 
-class _TypeTextWidgetState extends State<TypeTextWidget> {
+class _TextwidgetState extends State<Textwidget> {
   @override
   Widget build(BuildContext context) {
     if (widget.json['type'] == 'text') {
