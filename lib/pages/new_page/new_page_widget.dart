@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -59,6 +60,18 @@ class _NewPageWidgetState extends State<NewPageWidget> {
           actions: [],
           centerTitle: false,
           elevation: 2.0,
+        ),
+        body: SafeArea(
+          top: true,
+          child: Container(
+            width: double.infinity,
+            height: MediaQuery.sizeOf(context).height * 1.0,
+            child: custom_widgets.AllConditionWidget(
+              width: double.infinity,
+              height: MediaQuery.sizeOf(context).height * 1.0,
+              json: FFAppState().json,
+            ),
+          ),
         ),
       ),
     );
