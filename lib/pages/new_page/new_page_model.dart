@@ -1,4 +1,3 @@
-import '/components/condition_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -15,18 +14,13 @@ class NewPageModel extends FlutterFlowModel<NewPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for condition component.
-  late ConditionModel conditionModel;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {
-    conditionModel = createModel(context, () => ConditionModel());
-  }
+  void initState(BuildContext context) {}
 
   void dispose() {
     unfocusNode.dispose();
-    conditionModel.dispose();
   }
 
   /// Action blocks are added here.

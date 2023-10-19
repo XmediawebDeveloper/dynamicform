@@ -7,23 +7,23 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-class NewCustomWidget extends StatefulWidget {
-  const NewCustomWidget({
+class ChoiceChipswidget extends StatefulWidget {
+  const ChoiceChipswidget({
     Key? key,
     this.width,
     this.height,
-    this.type,
+    this.json,
   }) : super(key: key);
 
   final double? width;
   final double? height;
-  final String? type;
+  final dynamic json;
 
   @override
-  _NewCustomWidgetState createState() => _NewCustomWidgetState();
+  _ChoiceChipswidgetState createState() => _ChoiceChipswidgetState();
 }
 
-class _NewCustomWidgetState extends State<NewCustomWidget> {
+class _ChoiceChipswidgetState extends State<ChoiceChipswidget> {
   @override
   Widget build(BuildContext context) {
     return Container();

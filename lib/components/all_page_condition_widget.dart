@@ -4,7 +4,6 @@ import '/components/listview_widget.dart';
 import '/components/row_type_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -112,27 +111,6 @@ class _AllPageConditionWidgetState extends State<AllPageConditionWidget> {
               json: getJsonField(
                 widget.json,
                 r'''$.attr''',
-              ),
-            ),
-          );
-        } else if (functions.jsonToString(getJsonField(
-              widget.json,
-              r'''$.type''',
-            )) ==
-            'text') {
-          return Container(
-            width: MediaQuery.sizeOf(context).width * 1.0,
-            height: 100.0,
-            child: custom_widgets.TypeTextWidget(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: 100.0,
-              value: getJsonField(
-                widget.json,
-                r'''$.attr.value''',
-              ).toString(),
-              json: getJsonField(
-                widget.json,
-                r'''$.attr.prop''',
               ),
             ),
           );

@@ -4,7 +4,6 @@ import '/components/listview_widget.dart';
 import '/components/row_type_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'all_page_condition_widget.dart' show AllPageConditionWidget;
 import 'package:flutter/material.dart';
