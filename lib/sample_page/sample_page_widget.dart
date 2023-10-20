@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sample_page_model.dart';
@@ -37,6 +37,15 @@ class _SamplePageWidgetState extends State<SamplePageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -316,13 +325,270 @@ class _SamplePageWidgetState extends State<SamplePageWidget> {
                     ],
                   ),
                 ),
-                Container(
-                  width: 250.0,
-                  height: 250.0,
-                  child: custom_widgets.Imagewidget(
-                    width: 250.0,
-                    height: 250.0,
-                    json: FFAppState().ImageJSon,
+                Flexible(
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                    child: ListView(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xB7EE8B60),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.00, 0.00),
+                            child: Text(
+                              'Naveen',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xB7EE8B60),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.00, 0.00),
+                            child: Text(
+                              'Naveen',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xB7EE8B60),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.00, 0.00),
+                            child: Text(
+                              'Naveen',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xB7EE8B60),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.00, 0.00),
+                            child: Text(
+                              'Naveen',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xB7EE8B60),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.00, 0.00),
+                            child: Text(
+                              'Naveen',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xB7EE8B60),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.00, 0.00),
+                            child: Text(
+                              'Naveen',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xB7EE8B60),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.00, 0.00),
+                            child: Text(
+                              'Naveen',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xB7EE8B60),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.00, 0.00),
+                            child: Text(
+                              'Naveen',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xB7EE8B60),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.00, 0.00),
+                            child: Text(
+                              'Naveen',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xB7EE8B60),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.00, 0.00),
+                            child: Text(
+                              'Naveen',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xB7EE8B60),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.00, 0.00),
+                            child: Text(
+                              'Naveen',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ].divide(SizedBox(height: 20.0)),
+                    ),
                   ),
                 ),
               ],
