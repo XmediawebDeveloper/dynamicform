@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/components/all_page_condition_widget.dart';
 import 'package:provider/provider.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 
 class Columnwidget extends StatefulWidget {
   const Columnwidget({
@@ -118,7 +119,9 @@ class _ColumnwidgetState extends State<Columnwidget> {
                               : CrossAxisAlignment.start,
               children: List.generate(jsonList.length, (jsonIndex) {
                 final jsonItem = jsonList[jsonIndex];
-                return AllPageConditionWidget(
+                return custom_widgets.AllConditionWidget(
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: 100.0,
                   json: jsonItem,
                 );
               })
@@ -168,7 +171,9 @@ class _ColumnwidgetState extends State<Columnwidget> {
                               : CrossAxisAlignment.start,
               children: List.generate(jsonList.length, (jsonIndex) {
                 final jsonItem = jsonList[jsonIndex];
-                return AllPageConditionWidget(
+                return custom_widgets.AllConditionWidget(
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: 100.0,
                   json: jsonItem,
                 );
               })

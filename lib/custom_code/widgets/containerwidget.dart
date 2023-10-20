@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/components/all_page_condition_widget.dart';
 import 'package:provider/provider.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 
 class Containerwidget extends StatefulWidget {
   const Containerwidget({
@@ -89,13 +90,15 @@ class _ContainerwidgetState extends State<Containerwidget> {
       r'''$.child''',
     );
     final align_x = getJsonField(
-      widget.json,
-      r'''$.prop.align_x''',
-    ).toDouble();
+          widget.json,
+          r'''$.prop.align_x''',
+        ).toDouble() ??
+        0.0;
     final align_y = getJsonField(
-      widget.json,
-      r'''$.prop.align_y''',
-    ).toDouble();
+          widget.json,
+          r'''$.prop.align_y''',
+        ).toDouble() ??
+        0.0;
 
     return Builder(
       builder: (context) {
@@ -136,7 +139,9 @@ class _ContainerwidgetState extends State<Containerwidget> {
                   ),
                 ),
                 alignment: AlignmentDirectional(align_x, align_y),
-                child: AllPageConditionWidget(
+                child: custom_widgets.AllConditionWidget(
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: 100.0,
                   json: jsonItem,
                 )),
           );

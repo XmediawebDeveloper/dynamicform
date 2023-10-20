@@ -37,6 +37,7 @@ class _AllConditionWidgetState extends State<AllConditionWidget> {
       widget.json,
       r'''$.type''',
     ));
+    print(widget.json);
     return Builder(
       builder: (context) {
         if (functions.jsonToString(getJsonField(
