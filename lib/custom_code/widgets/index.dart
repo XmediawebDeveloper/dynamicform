@@ -7,3 +7,4 @@ export 'rowwidget.dart' show Rowwidget;
 export 'choice_chipswidget.dart' show ChoiceChipswidget;
 export 'listviewwidget.dart' show Listviewwidget;
 export 'inputwidget.dart' show Inputwidget;
+export 'testing_widget.dart' show TestingWidget;

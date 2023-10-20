@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sample_model.dart';
@@ -33,6 +34,7 @@ class _SampleWidgetState extends State<SampleWidget> {
     _model = createModel(context, () => SampleModel());
 
     _model.textController ??= TextEditingController(text: 'test');
+    _model.textFieldFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -53,6 +55,7 @@ class _SampleWidgetState extends State<SampleWidget> {
         width: 500.0,
         child: TextFormField(
           controller: _model.textController,
+          focusNode: _model.textFieldFocusNode,
           obscureText: !_model.passwordVisibility,
           decoration: InputDecoration(
             labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
